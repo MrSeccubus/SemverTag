@@ -1,0 +1,15 @@
+# action.yml
+name: 'Semantic version tag bot'
+description: 'A Bot that tags commits with tags based on the semantic version (including increases in version number)'
+author: Frank Breedijk
+branding:
+  icon: check
+  color: yellow
+inputs:
+  github-token :
+    description: 'Github token, usually automatically provided via `secrets.GITHUB_TOKEN`, required when pr is set to `true`'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+    GITHUB_TOKEN :          ${{ inputs.github-token }}
